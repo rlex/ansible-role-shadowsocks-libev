@@ -1,0 +1,15 @@
+{
+  "server": "{{ shadowsocks_libev_server }}",
+  "server_port": {{ shadowsocks_libev_server_port }},
+  "local_port": {{ shadowsocks_libev_local_port }},
+  "password": "{{ shadowsocks_libev_password }}",
+  "timeout": {{ shadowsocks_libev_timeout }},
+  "method": "{{ shadowsocks_libev_method }}",
+  "addr": "{{ shadowsocks_libev_dns }}",
+  "mode": "{{ shadowsocks_libev_mode }}",
+{% if shadowsocks_libev_obfs -%}
+  "plugin": "{{ shadowsocks_libev_plugin }}",
+  "plugin_opts": "{{ shadowsocks_libev_plugin_opts }}",
+{% endif %}
+  "fast_open": {{ shadowsocks_libev_fast_open | lower }}
+}

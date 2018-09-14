@@ -1,0 +1,15 @@
+- name: install shadowsocks
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ shadowsocks_libev_packages }}"
+
+- name: generate config file
+  template:
+    src: config.json.j2
+    dest: "/etc/shadowsocks-libev/config.json"
+    mode: 775
+    owner: root
+    group: root
+    force: yes
+  notify: restart shadowsocks-libev

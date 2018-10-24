@@ -2,7 +2,7 @@
   package:
     name: "{{ item }}"
     state: present
-  with_items: "{{ shadowsocks_libev_packages }}"
+  loop: "{{ shadowsocks_libev_packages }}"
 
 - name: generate config file
   template:
